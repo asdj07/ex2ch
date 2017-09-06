@@ -1,0 +1,19 @@
+{
+  "name": "api-ex2ch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "config": "^1.26.2",
+    "express": "^4.15.4",
+    "iconv-lite": "^0.4.18",
+    "request": "^2.81.0"
+  }
+}

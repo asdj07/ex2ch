@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>React Test</title>
+</head>
+<link href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style> 
+
+    .ex2ch-title {
+        background: blueviolet;
+        height: 150px;
+        width: 100%;
+        padding-top: 60px;
+    } 
+    
+    .ex2ch-title >input{
+        width: 600px;
+        margin: 0 auto;
+        height:50px;
+        font-size: 18px;
+    }
+
+    .ex2ch-iframe{
+        width: 100%;
+    }
+</style> 
+<body>
+    <div class="ex2ch-title">
+        <input id="ex2ch-input" type="text" class="form-control" placeholder="url..." >
+    </div>
+
+    <iframe id="ex2ch-iframe"  class="ex2ch-iframe" src=""></iframe>
+
+</body>
+</html>
+<script type="text/javascript">
+    var apiUrl = "http://localhost:8080/htmlurl?url=";
+    $('#ex2ch-input').on('keypress',function(event){ 
+         if(event.keyCode == 13)      {  
+             var url = $("#ex2ch-input").val().indexOf("http")==-1?"http://"+$("#ex2ch-input").val():$("#ex2ch-input").val();
+             url = apiUrl + url;
+             $.get(url,function(html_url){
+                $(".ex2ch-iframe").attr("src",html_url);
+                setTimeout(function(){
+                    setIframeHeight(document.getElementById("ex2ch-iframe"));
+                },500);
+                
+            })
+         }  
+     });
+
+     //iframe自适应高度
+    function setIframeHeight(iframe) {
+        if (iframe) {
+                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                if (iframeWin.document.body) {
+                iframe.height = 10 + (iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight);
+            }
+        }
+    };
+
+    window.onload(function(){
+        $(".ex2ch-iframe").attr("src","");
+    })
+</script>   
