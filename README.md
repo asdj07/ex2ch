@@ -5,4 +5,4 @@
 
 * 判断爬取网页的编码，转成utf8
 
-* iframe显示转化后的页面，srcdoc属性可以显示html代码，但是设置的时候总是不能正常显示，然后将html代码输出到服务端的一个html文件，路径返回给前端的iframe调用src=url
+* iframe显示转化后的页面，srcdoc属性可以显示html代码，但是设置的时候总是不能正常显示，然后换个方法将html代码输出到服务端的一个html文件，路径返回给前端的iframe调用src=url
